@@ -30,8 +30,8 @@ public class Concerto extends Evento {
         this.prezzo = prezzo;
     }
 
-    public String toString(){
-        return getData() + " " + getOra() + " " + getTitolo()+ " " + getPrezzo();
+    public String toString() {
+        return getData() + " " + getOra() + " " + getTitolo() + " " + getPrezzo();
     }
 
 }

@@ -66,8 +66,8 @@ public class Evento {
     }
 
     public int getNumeroPostiPrenotati() {
-            return numeroPostiPrenotati;
-    
+        return numeroPostiPrenotati;
+
     }
 
     @Override

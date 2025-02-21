@@ -34,7 +34,7 @@ public class App {
 
         LocalTime oraConcerto = LocalTime.of(13, 30);
         LocalDate dataConcerto = LocalDate.of(2025, 05, 01);
-        Evento primoMaggio = new Concerto("primo maggio", dataEvento, 500, oraConcerto, 50);
+        Evento primoMaggio = new Concerto("primo maggio", dataConcerto, 500, oraConcerto, 50);
         System.out.println(primoMaggio);
 
     }
