@@ -1,5 +1,6 @@
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Scanner;
 
 public class App {
@@ -29,7 +30,12 @@ public class App {
 
         System.out.println(concerto.getNumeroPostiPrenotati());
         System.out.println(concerto.getNumeroPostiTotale());
-        System.out.println(concerto);// TODO: FORMATTARE data TOSTRING implentando comparable in Evento, con il metodo compareTo
+        System.out.println(concerto);// TODO: memo: FORMATTARE data TOSTRING implentando comparable in Evento, con il metodo compareTo
+
+        LocalTime oraConcerto = LocalTime.of(13, 30);
+        LocalDate dataConcerto = LocalDate.of(2025, 05, 01);
+        Evento primoMaggio = new Concerto("primo maggio", dataEvento, 500, oraConcerto, 50);
+        System.out.println(primoMaggio);
 
     }
 }
