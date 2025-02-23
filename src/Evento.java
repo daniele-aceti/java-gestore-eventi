@@ -72,7 +72,7 @@ public class Evento {
 
     @Override
     public String toString() {
-        return getData() + " " + getTitolo();
+        return data.getDayOfMonth() + "/" + data.getMonth() + "/" + data.getYear() + " " + titolo;
     }
 
 }

@@ -31,7 +31,8 @@ public class Concerto extends Evento {
     }
 
     public String toString() {
-        return getData() + " " + getOra() + " " + getTitolo() + " " + getPrezzo();
+        return getData().getDayOfMonth() + "/" + getData().getMonth() + "/" + getData().getYear() + " " + ora.getHour() 
+                + ":" + ora.getMinute() + " " + getTitolo() + " " + prezzo + "€";
     }
 
 }
