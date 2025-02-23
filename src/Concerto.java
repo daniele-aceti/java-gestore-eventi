@@ -30,6 +30,7 @@ public class Concerto extends Evento {
         this.prezzo = prezzo;
     }
 
+    //STAMPA : GIORNO/MESE/ANNO- ORA:MINUTI- PREZZO IN €
     public String toString() {
         return getData().getDayOfMonth() + "/" + getData().getMonth() + "/" + getData().getYear() + " " + ora.getHour() 
                 + ":" + ora.getMinute() + " " + getTitolo() + " " + prezzo + "€";

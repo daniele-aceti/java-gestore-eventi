@@ -2,3 +2,4 @@ bin/App.class
 bin/Concerto.class
 bin/Evento.class
 .vscode/settings.json
+bin/ProgrammaEventi.class
