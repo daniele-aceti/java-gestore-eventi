@@ -37,7 +37,7 @@ public class Evento {
         System.out.println("Quanti posti vuoi disdire?");
         int postiDaDisdire = scan.nextInt();
         boolean dataEventoValida = data.isEqual(LocalDate.now()) || data.isAfter(LocalDate.now());
-        if (dataEventoValida && numeroPostiPrenotati > postiDaDisdire) {
+        if (dataEventoValida && numeroPostiPrenotati >= postiDaDisdire) {
             return numeroPostiPrenotati -= postiDaDisdire;
         } else {
             throw new Exception("Non è possibile completare l'operazione controllare i dati inseriti");
@@ -70,9 +70,13 @@ public class Evento {
 
     }
 
+    public String formatData() {
+        return data.getDayOfMonth() + "/" + data.getMonth() + "/" + data.getYear();
+    }
+
     @Override
     public String toString() {
-        return data.getDayOfMonth() + "/" + data.getMonth() + "/" + data.getYear() + " " + titolo;
+        return formatData() + " " + titolo;
     }
 
 }

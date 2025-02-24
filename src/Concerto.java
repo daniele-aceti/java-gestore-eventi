@@ -1,4 +1,6 @@
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -30,10 +32,15 @@ public class Concerto extends Evento {
         this.prezzo = prezzo;
     }
 
+    public String formatPrezzo() {
+        BigDecimal prezzoDecimale = new BigDecimal(prezzo);
+        prezzoDecimale = prezzoDecimale.setScale(2, RoundingMode.HALF_UP);
+        return String.format("%s", prezzoDecimale).replace(".", ",");
+    }
+
     //STAMPA : GIORNO/MESE/ANNO- ORA:MINUTI- PREZZO IN €
     public String toString() {
-        return getData().getDayOfMonth() + "/" + getData().getMonth() + "/" + getData().getYear() + " " + ora.getHour() 
-                + ":" + ora.getMinute() + " " + getTitolo() + " " + prezzo + "€";
+        return formatData() + " " + getOra() + " " + getTitolo() + " " + formatPrezzo() + " Euro";
     }
 
 }
