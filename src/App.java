@@ -20,44 +20,53 @@ public class App {
         int postiEvento = scan.nextInt();
 
         LocalDate dataEvento = LocalDate.of(annoEvento, meseEvento, giornoEvento);
-        Evento spettacoloTeatrale = new Evento(nomeEvento, dataEvento, postiEvento);
         try {
+            Evento spettacoloTeatrale = new Evento(nomeEvento, dataEvento, postiEvento);
             spettacoloTeatrale.prenota();
             spettacoloTeatrale.disdici();
+            System.out.println(spettacoloTeatrale.getNumeroPostiPrenotati());
+            System.out.println(spettacoloTeatrale.getNumeroPostiTotale());
+            System.out.println(spettacoloTeatrale);
         } catch (Exception e) {
             System.err.println(e);
             return;
         }
-        System.out.println(spettacoloTeatrale.getNumeroPostiPrenotati());
-        System.out.println(spettacoloTeatrale.getNumeroPostiTotale());
-        System.out.println(spettacoloTeatrale);
 
         //Inserimento concerto
         LocalTime oraConcerto = LocalTime.of(13, 30);
         LocalDate dataConcerto = LocalDate.of(2025, 05, 01);
-        Concerto primoMaggio = new Concerto("Primo Maggio", dataConcerto, 500, oraConcerto, 50.5);
-        System.out.println(primoMaggio);
+        try {
+            Concerto primoMaggio = new Concerto("Primo Maggio", dataConcerto, 500, oraConcerto, 50.5);
+            System.out.println(primoMaggio);
+        } catch (Exception e) {
+            System.err.println(e);
+            return;
+        }
 
-        //Prove inserimento eventi
-        LocalTime oraConcerto2 = LocalTime.of(14, 30);
-        LocalDate dataConcerto2 = LocalDate.of(2025, 06, 10);
-        Concerto primoMaggio2 = new Concerto("Primo Maggio2", dataConcerto2, 500, oraConcerto2, 50.5);
+        //Lista eventi
+        LocalDate dataListaEvento = LocalDate.of(2025, 05, 01);
+        LocalDate dataListaEvento2 = LocalDate.of(2026, 05, 01);
+        LocalDate dataListaEvento3 = LocalDate.of(2025, 03, 01);
+        try {
+            //listaEventi.addEvento(EventoPiazza);
+            Evento eventoPiazza = new Evento("Evento Piazza", dataListaEvento, 500);
+            Evento eventoPiazza2 = new Evento("Evento Piazza2", dataListaEvento2, 500);
+            Evento eventoPiazza3 = new Evento("Evento Piazza3", dataListaEvento3, 500);
+            ProgrammaEventi lisProgrammaEventi = new ProgrammaEventi("Nuovo Programma");
+            lisProgrammaEventi.addEvento(eventoPiazza);
+            lisProgrammaEventi.addEvento(eventoPiazza2);
+            lisProgrammaEventi.addEvento(eventoPiazza3);
+            System.out.println(lisProgrammaEventi);
+            System.out.println(lisProgrammaEventi);
+            lisProgrammaEventi.listaPerData(01, 05, 2025);
+            System.out.println("Lista di quanti eventi ci sono: " + lisProgrammaEventi.numeroEventi());
+            //Collections.sort(lisProgrammaEventi);
+            lisProgrammaEventi.rimuoviTuttiGliEventi();
+            System.out.println(lisProgrammaEventi);
+        } catch (Exception e) {
+            System.err.println(e);
+            return;
+        }
 
-        LocalTime oraConcerto3 = LocalTime.of(14, 30);
-        LocalDate dataConcerto3 = LocalDate.of(2025, 05, 02);
-        Concerto primoMaggio3 = new Concerto("Primo Maggio3", dataConcerto3, 500, oraConcerto3, 50.5);
-
-        ProgrammaEventi listaEventi = new ProgrammaEventi("Evento: ", dataConcerto, 500);
-
-        listaEventi.addEvento(primoMaggio);
-        listaEventi.addEvento(primoMaggio2);
-        listaEventi.addEvento(primoMaggio3);
-        listaEventi.addEvento(spettacoloTeatrale);
-        System.out.println(listaEventi);
-        listaEventi.listaPerData(01, 05, 2025);
-        System.out.println("Lista di quanti eventi ci sono: " + listaEventi.listaProgramma());
-        System.out.println("Lista dopo cancellazione; " + listaEventi.rimuoviTuttiGliEventi());
-
-        //TODO:--COMPARETO FORMAT BONUS---
     }
 }

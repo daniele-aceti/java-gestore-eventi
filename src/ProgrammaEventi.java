@@ -3,34 +3,51 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProgrammaEventi extends Evento implements Comparable<Evento> {
+public class ProgrammaEventi {
 
     private String titolo;
 
     private List<Evento> eventi;
 
-    public ProgrammaEventi(String titolo, LocalDate data, int numeroPostiTotale) {
-        super(titolo, data, numeroPostiTotale);
+    public ProgrammaEventi(String titolo) {
         this.titolo = titolo;
-        this.eventi = new ArrayList<Evento>();
+        this.eventi = new ArrayList<>();
     }
 
-    public Boolean addEvento(Evento evento) {
-        return eventi.add(evento);
+    public String getTitolo() {
+        return titolo;
     }
 
-    public void listaPerData(int giorno, int mese, int anno) {
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
+    }
+
+    public List<Evento> getEventi() {
+        return eventi;
+    }
+
+    public void setEventi(List<Evento> eventi) {
+        this.eventi = eventi;
+    }
+
+    public List<Evento> addEvento(Evento evento) {
+        this.eventi.add(evento);
+        return eventi;
+
+    }
+
+    public List<Evento> listaPerData(int giorno, int mese, int anno) {
         LocalDate ricercaData = LocalDate.of(anno, mese, giorno);
-        List<Evento> nuovaLista = new ArrayList<Evento>();
+        List<Evento> nuovaLista = new ArrayList<>();
         for (int i = 0; i < eventi.size(); i++) {
             if (eventi.get(i).getData().equals(ricercaData)) {
                 nuovaLista.add(eventi.get(i));
             }
         }
-        System.out.println("Eventi trovati a questa data: " + nuovaLista);
+        return nuovaLista;
     }
 
-    public int listaProgramma() {
+    public int numeroEventi() {
         int numeroEventi = eventi.size();
         return numeroEventi;
     }
@@ -42,25 +59,12 @@ public class ProgrammaEventi extends Evento implements Comparable<Evento> {
     }
 
     @Override
-    public int compareTo(Evento eventi) {
-        for (int i = 0; i < this.eventi.size(); i++) {
-            if (this.eventi.get(i).getData().isAfter(this.eventi.get(i + 1).getData())) {
-                return +1;
-            } else if (this.eventi.get(i).getData().isBefore(this.eventi.get(i + 1).getData())) {
-                return +0;
-            }
-        }
-        return -1;
-
-    }
-
-    @Override
     public String toString() {
         String formatProgrammaEventi = "";
         for (int i = 0; i < eventi.size(); i++) {
             formatProgrammaEventi += eventi.get(i).formatData() + " - " + eventi.get(i).getTitolo() + "\n";
         }
-
         return formatProgrammaEventi;
+
     }
 }

@@ -12,36 +12,58 @@ public class Evento {
 
     private int numeroPostiPrenotati;
 
-    public Evento(String titolo, LocalDate data, int numeroPostiTotale) {
-        this.titolo = titolo;
-        this.data = data;
-        this.numeroPostiTotale = numeroPostiTotale;
-        numeroPostiPrenotati = 0;
+    Boolean controlloData;
+
+    public Evento(String titolo, LocalDate data, int numeroPostiTotale) throws Exception {
+        this.controlloData = data.isEqual(LocalDate.now()) || data.isAfter(LocalDate.now());
+        if (controlloData && numeroPostiTotale > 0) {
+            this.titolo = titolo;
+            this.data = data;
+            this.numeroPostiTotale = numeroPostiTotale;
+            numeroPostiPrenotati = 0;
+        } else {
+            throw new Exception("Non è possibile completare l'operazione controllare i dati inseriti");
+        }
+
     }
 
     public int prenota() throws Exception {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Quanti posti vuoi prenotare?");
-        int postiDaPrenotare = scan.nextInt();
-        boolean dataEventoValida = data.isEqual(LocalDate.now()) || data.isAfter(LocalDate.now());
-        if (dataEventoValida && numeroPostiTotale >= 0) {
-            return numeroPostiPrenotati += postiDaPrenotare;
-        } else {
-            throw new Exception("Non è possibile completare l'operazione controllare i dati inseriti");
+        System.out.println("Vuoi prenotare il tuo posto all'evento? Ripondi si o no");
+        String risposta = scan.nextLine();
+        int postiDaPrenotare = 0;
+        Boolean rispostaSi = risposta.equalsIgnoreCase("si") ? true : false;
+        Boolean rispostaNo = risposta.equalsIgnoreCase("no") ? true : false;
+        if (rispostaSi) {
+            System.out.println("Quanti posti vuoi prenotare?");
+            postiDaPrenotare = scan.nextInt();
+            if (this.controlloData && postiDaPrenotare >= 0 && postiDaPrenotare <= numeroPostiTotale) {
+                return numeroPostiPrenotati += postiDaPrenotare;
+            }
+        } else if (rispostaNo) {
+            return postiDaPrenotare = 0;
         }
-
+        throw new Exception("Non è possibile completare l'operazione controllare i dati inseriti");
     }
 
     public int disdici() throws Exception {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Quanti posti vuoi disdire?");
-        int postiDaDisdire = scan.nextInt();
-        boolean dataEventoValida = data.isEqual(LocalDate.now()) || data.isAfter(LocalDate.now());
-        if (dataEventoValida && numeroPostiPrenotati >= postiDaDisdire) {
-            return numeroPostiPrenotati -= postiDaDisdire;
-        } else {
-            throw new Exception("Non è possibile completare l'operazione controllare i dati inseriti");
+        System.out.println("Vuoi disdire il tuo posto all'evento? Ripondi si o no");
+        String risposta = scan.nextLine();
+        int postiDaPrenotare = 0;
+        Boolean rispostaSi = risposta.equalsIgnoreCase("si") ? true : false;
+        Boolean rispostaNo = risposta.equalsIgnoreCase("no") ? true : false;
+        if (rispostaSi) {
+            System.out.println("Quanti posti vuoi disdire?");
+            int postiDaDisdire = scan.nextInt();
+            if (this.controlloData && numeroPostiPrenotati >= postiDaDisdire && postiDaDisdire >= 0) {
+                return numeroPostiPrenotati -= postiDaDisdire;
+            }
+        } else if (rispostaNo) {
+            return postiDaPrenotare = 0;
         }
+        throw new Exception("Non è possibile completare l'operazione controllare i dati inseriti");
+
     }
 
     public String getTitolo() {

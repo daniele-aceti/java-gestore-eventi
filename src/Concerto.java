@@ -10,10 +10,11 @@ public class Concerto extends Evento {
 
     private double prezzo;
 
-    public Concerto(String titolo, LocalDate data, int numeroPostiTotale, LocalTime ora, double prezzo) {
+    public Concerto(String titolo, LocalDate data, int numeroPostiTotale, LocalTime ora, double prezzo) throws Exception {
+        super(titolo, data, numeroPostiTotale);
         this.ora = ora;
         this.prezzo = prezzo;
-        super(titolo, data, numeroPostiTotale);
+        //eredita l'eccezione di Evento ha il controllo data e n.posti totale
     }
 
     public LocalTime getOra() {
