@@ -12,7 +12,7 @@ public class Evento {
 
     private int numeroPostiPrenotati;
 
-    Boolean controlloData;
+    private Boolean controlloData;
 
     public Evento(String titolo, LocalDate data, int numeroPostiTotale) throws Exception {
         this.controlloData = data.isEqual(LocalDate.now()) || data.isAfter(LocalDate.now());
