@@ -2,7 +2,7 @@
 import java.time.LocalDate;
 import java.util.Scanner;
 
-public class Evento {
+public class Evento implements Comparable<Evento> {
 
     private String titolo;
 
@@ -13,6 +13,10 @@ public class Evento {
     private int numeroPostiPrenotati;
 
     private Boolean controlloData;
+
+    public Evento() {
+
+    }
 
     public Evento(String titolo, LocalDate data, int numeroPostiTotale) throws Exception {
         this.controlloData = data.isEqual(LocalDate.now()) || data.isAfter(LocalDate.now());
@@ -97,8 +101,17 @@ public class Evento {
     }
 
     @Override
-    public String toString() {
-        return formatData() + " " + titolo;
+    public int compareTo(Evento evento) {
+        if (evento.getData().isAfter(data)) {
+            return -1;
+        } else if (evento.getData().isBefore(data)) {
+            return 0;
+        }
+        return +1;
     }
 
+    @Override
+    public String toString() {
+        return formatData() + " - " + titolo + "\n";
+    }
 }

@@ -14,7 +14,7 @@ public class Concerto extends Evento {
         super(titolo, data, numeroPostiTotale);
         this.ora = ora;
         this.prezzo = prezzo;
-        //eredita l'eccezione di Evento ha il controllo data e n.posti totale
+
     }
 
     public LocalTime getOra() {

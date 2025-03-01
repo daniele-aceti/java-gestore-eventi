@@ -3,7 +3,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProgrammaEventi {
+public class ProgrammaEventi extends Evento {
 
     private String titolo;
 
@@ -60,11 +60,9 @@ public class ProgrammaEventi {
 
     @Override
     public String toString() {
-        String formatProgrammaEventi = "";
-        for (int i = 0; i < eventi.size(); i++) {
-            formatProgrammaEventi += eventi.get(i).formatData() + " - " + eventi.get(i).getTitolo() + "\n";
+        if (eventi.isEmpty()) {
+            return "Il programma è vuoto";
         }
-        return formatProgrammaEventi;
-
+        return titolo + ":" + eventi;
     }
 }

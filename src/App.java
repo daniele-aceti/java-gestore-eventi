@@ -1,6 +1,9 @@
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -48,19 +51,23 @@ public class App {
         LocalDate dataListaEvento2 = LocalDate.of(2026, 05, 01);
         LocalDate dataListaEvento3 = LocalDate.of(2025, 03, 01);
         try {
-            //listaEventi.addEvento(EventoPiazza);
+            ProgrammaEventi lisProgrammaEventi = new ProgrammaEventi("Programma Eventi");
             Evento eventoPiazza = new Evento("Evento Piazza", dataListaEvento, 500);
-            Evento eventoPiazza2 = new Evento("Evento Piazza2", dataListaEvento2, 500);
-            Evento eventoPiazza3 = new Evento("Evento Piazza3", dataListaEvento3, 500);
-            ProgrammaEventi lisProgrammaEventi = new ProgrammaEventi("Nuovo Programma");
+            Evento eventoStadio = new Evento("Evento Stadio", dataListaEvento2, 500);
+            Evento eventoTeatro = new Evento("Evento Teatro", dataListaEvento3, 500);
             lisProgrammaEventi.addEvento(eventoPiazza);
-            lisProgrammaEventi.addEvento(eventoPiazza2);
-            lisProgrammaEventi.addEvento(eventoPiazza3);
-            System.out.println(lisProgrammaEventi);
-            System.out.println(lisProgrammaEventi);
-            lisProgrammaEventi.listaPerData(01, 05, 2025);
+            lisProgrammaEventi.addEvento(eventoStadio);
+            lisProgrammaEventi.addEvento(eventoTeatro);
+            System.out.println("Listo dopo addEvento: " + lisProgrammaEventi);
+            System.out.println("Ricerca: " + lisProgrammaEventi.listaPerData(01, 05, 2025));
             System.out.println("Lista di quanti eventi ci sono: " + lisProgrammaEventi.numeroEventi());
-            //Collections.sort(lisProgrammaEventi);
+            //lista ordinata per data
+            List<Evento> nuovaLista = new ArrayList<>();
+            nuovaLista.add(eventoPiazza);
+            nuovaLista.add(eventoStadio);
+            nuovaLista.add(eventoTeatro);
+            Collections.sort(nuovaLista);
+            System.out.println(nuovaLista);
             lisProgrammaEventi.rimuoviTuttiGliEventi();
             System.out.println(lisProgrammaEventi);
         } catch (Exception e) {
