@@ -3,7 +3,7 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Evento implements Comparable<Evento> {
-
+    
     private String titolo;
 
     private LocalDate data;
@@ -99,6 +99,7 @@ public class Evento implements Comparable<Evento> {
     public String formatData() {
         return data.getDayOfMonth() + "/" + data.getMonth() + "/" + data.getYear();
     }
+    
 
     @Override
     public int compareTo(Evento evento) {
