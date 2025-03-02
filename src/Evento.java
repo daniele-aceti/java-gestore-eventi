@@ -14,10 +14,7 @@ public class Evento implements Comparable<Evento> {
 
     private Boolean controlloData;
 
-    public Evento() {
-
-    }
-
+  
     public Evento(String titolo, LocalDate data, int numeroPostiTotale) throws Exception {
         this.controlloData = data.isEqual(LocalDate.now()) || data.isAfter(LocalDate.now());
         if (controlloData && numeroPostiTotale > 0) {

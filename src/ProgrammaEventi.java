@@ -3,7 +3,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProgrammaEventi extends Evento {
+public class ProgrammaEventi {
 
     private String titolo;
 
