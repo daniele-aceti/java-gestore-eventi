@@ -84,8 +84,11 @@ public class Evento implements Comparable<Evento> {
     }
 
     public int getNumeroPostiTotale() {
-        numeroPostiTotale = numeroPostiTotale - numeroPostiPrenotati;
         return numeroPostiTotale;
+    }
+
+    public int postiRimanenti(){
+        return getNumeroPostiTotale() - getNumeroPostiPrenotati();
     }
 
     public int getNumeroPostiPrenotati() {

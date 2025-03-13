@@ -40,6 +40,7 @@ public class Concerto extends Evento {
     }
 
     //STAMPA : GIORNO/MESE/ANNO- ORA:MINUTI- PREZZO IN €
+    @Override
     public String toString() {
         return formatData() + " " + getOra() + " " + getTitolo() + " " + formatPrezzo() + " Euro";
     }

@@ -24,9 +24,11 @@ public class App {
         try {
             Evento spettacoloTeatrale = new Evento(nomeEvento, dataEvento, postiEvento);
             spettacoloTeatrale.prenota();
+            System.out.println("posti prenotati: " + spettacoloTeatrale.getNumeroPostiPrenotati());
+            System.out.println("posti totali: " + spettacoloTeatrale.postiRimanenti());
             spettacoloTeatrale.disdici();
-            System.out.println(spettacoloTeatrale.getNumeroPostiPrenotati());
-            System.out.println(spettacoloTeatrale.getNumeroPostiTotale());
+            System.out.println("posti prenotati: " + spettacoloTeatrale.getNumeroPostiPrenotati());
+            System.out.println("posti totali: " + spettacoloTeatrale.postiRimanenti());
             System.out.println(spettacoloTeatrale);
         } catch (Exception e) {
             System.err.println(e);
