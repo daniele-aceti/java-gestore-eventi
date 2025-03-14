@@ -105,9 +105,9 @@ public class Evento implements Comparable<Evento> {
         if (evento.getData().isAfter(data)) {
             return -1;
         } else if (evento.getData().isBefore(data)) {
-            return 0;
+            return +1;
         }
-        return +1;
+        return 0;
     }
 
     @Override
