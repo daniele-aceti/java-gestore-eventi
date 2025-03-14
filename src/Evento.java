@@ -51,7 +51,6 @@ public class Evento implements Comparable<Evento> {
         Scanner scan = new Scanner(System.in);
         System.out.println("Vuoi disdire il tuo posto all'evento? Ripondi si o no");
         String risposta = scan.nextLine();
-        int postiDaPrenotare = 0;
         Boolean rispostaSi = risposta.equalsIgnoreCase("si") ? true : false;
         Boolean rispostaNo = risposta.equalsIgnoreCase("no") ? true : false;
         if (rispostaSi) {
@@ -61,7 +60,7 @@ public class Evento implements Comparable<Evento> {
                 return numeroPostiPrenotati -= postiDaDisdire;
             }
         } else if (rispostaNo) {
-            return postiDaPrenotare = 0;
+            return 0;
         }
         throw new Exception("Non è possibile completare l'operazione controllare i dati inseriti");
 
