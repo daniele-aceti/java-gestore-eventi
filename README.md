@@ -1,18 +1,39 @@
-## Getting Started
+# 📅 Gestore Eventi - Java Console App
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+**Java** • **OOP** • **Console** • **ArrayList** • **Date & Time**
 
-## Folder Structure
+> Applicazione Java da terminale per la gestione di eventi, scritta in stile object-oriented, con funzionalità di creazione, prenotazione e annullamento eventi.
 
-The workspace contains two folders by default, where:
+---
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## 🚀 Funzionalità principali
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- 🆕 Creazione eventi con titolo, data e capienza massima  
+- 📌 Prenotazione posti (con gestione capienza e date)  
+- ❌ Annullamento prenotazioni  
+- 📋 Elenco eventi e filtro per data  
+- 🧠 Utilizzo di classi, metodi e incapsulamento OOP  
+- 🕓 Gestione di date con `LocalDate`
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+---
 
-## Dependency Management
+## 🛠️ Stack Tecnologico
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- **Linguaggio:** Java (JDK 17+)  
+- **Paradigma:** Programmazione a oggetti  
+- **Strumenti:** IntelliJ IDEA / Eclipse / VS Code  
+- **Input/output:** Scanner (console)  
+- **Strutture dati:** ArrayList
+
+---
+
+📌 Note
+Questo progetto è stato sviluppato a scopo didattico per esercitarsi con:
+
+concetti di programmazione orientata agli oggetti in Java
+
+uso delle classi LocalDate, ArrayList, e Scanner
+
+gestione degli errori con try/catch
+
+separazione delle responsabilità in più classi
