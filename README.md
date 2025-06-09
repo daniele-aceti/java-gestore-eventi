@@ -1,5 +1,7 @@
 # 📅 Gestore Eventi - Java Console App
 
+📅 Ultimo aggiornamento 14/03/2025
+
 **Java** • **OOP** • **Console** • **ArrayList** • **Date & Time**
 
 > Applicazione Java da terminale per la gestione di eventi, scritta in stile object-oriented, con funzionalità di creazione, prenotazione e annullamento eventi.
